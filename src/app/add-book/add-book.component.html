@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-body">
+    <form [formGroup]="angForm" novalidate  (ngSubmit)="saveBook()">
+    <div class="form-group">
+    <label class="col-md-4">Book Name</label>
+    <input type="text" class="form-control"
+    formControlName="tiitle"
+    #tiitle />
+</div>
+
+<div *ngIf="angForm.controls['tiitle'].invalid && (angForm.controls['tiitle'].dirty || angForm.controls['tiitle'].touched)
+" class="alert alert-danger">
+<div *ngIf="angForm.controls['tiitle'].errors!.required">
+Book name is required.
+</div>
+</div>
+
+
+<div class="form-group">
+<label class="col-md-4">Author</label>
+<input type="text" class="form-control"
+formControlName="auuthor"
+#auuthor />
+
+</div>
+<div *ngIf="angForm.controls['auuthor'].invalid && (angForm.controls['auuthor'].dirty || angForm.controls['auuthor'].touched)
+" class="alert alert-danger">
+<div *ngIf="angForm.controls['auuthor'].errors!.required">
+Product Description is required.
+</div>
+</div>
+<div class="form-group">
+<label class="col-md-4">Book Price</label>
+<input type="text" class="form-control"
+formControlName="priice"
+#priice
+/>
+</div>
+<div *ngIf="angForm.controls['priice'].invalid && (angForm.controls['priice'].dirty || angForm.controls['priice'].touched)" class="alert alert-danger">
+<div *ngIf="angForm.controls['priice'].errors!.required">
+Product Price is required.
+</div>
+</div>
+<div class="form-group">
+    <label class="col-md-4">Release Date</label>
+    <input type="date" class="form-control"
+    formControlName="daate"
+    #daate />
+    
+    </div>
+    <div *ngIf="angForm.controls['daate'].invalid && (angForm.controls['daate'].dirty || angForm.controls['daate'].touched)
+    " class="alert alert-danger">
+    <div *ngIf="angForm.controls['daate'].errors!.required">
+    Product Description is required.
+    </div>
+    </div>
+<div class="form-group">
+<button type="submit" class="btn btn-primary"
+[disabled]="angForm.pristine || angForm.invalid" >
+Create Product
+ </button>
+ </div>
+ </form>
+ </div>
+</div>

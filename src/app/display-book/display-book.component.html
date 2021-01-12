@@ -1,0 +1,40 @@
+
+<router-outlet></router-outlet>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <td> id  </td>
+  <td> author </td>
+  <td>date</td>
+  <td>price</td>
+ 
+  <td > title </td>
+  
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books">
+  <td>{{book.id}}</td>
+  <td> {{book.author}}</td>
+  <td>{{book.date}}</td>
+  <td>{{book.price}}</td>
+  <td> {{book.title}}</td>
+  <td><a  class="btn btn-primary" [routerLink]="['../bookEdit', book.id ]">Edit</a></td>
+  <td>
+   <a    class="btn btn-danger" (click)="deleteBook(book.id)"> Delete</a>
+  </td>
+  <td>
+    <a    class="btn btn-primary" > Buy</a>
+   </td> 
+   
+   <!-- Example single danger button -->
+   <select name="cars" id="cars" >
+    <option value="volvo">1</option>
+    <option value="saab">2</option>
+    <option value="mercedes">3</option>
+    <option value="audi">4</option>
+    <option value="audi">5</option>
+  </select>
+  </tr>
+  </tbody>
+ </table>
